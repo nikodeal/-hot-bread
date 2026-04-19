@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1b1e"/>
+      <stop offset="1" stop-color="#0f0f10"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="320" cy="250" r="240" fill="#f0b35b" opacity="0.18"/>
+  <circle cx="880" cy="520" r="280" fill="#ffdb9a" opacity="0.12"/>
+  <text x="50%" y="52%" fill="#f5f5f7" font-size="54" font-family="Arial" text-anchor="middle" opacity="0.85">הכניסו תמונה שלכם כאן</text>
+  <text x="50%" y="60%" fill="#a7a7b2" font-size="28" font-family="Arial" text-anchor="middle" opacity="0.9">assets/images/</text>
+</svg>
