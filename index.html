@@ -3,32 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>לחם חם | מאפיית לחם קווקזי</title>
+    <title>לחם חם | מאפייה משפחתית</title>
     <meta
       name="description"
-      content="לחמים, מאפים וכריכים — נאפה טרי כל יום. הזמינו בוואטסאפ או קפצו אלינו לשוק."
+      content="גרסת אתר תדמית למאפיית לחם חם בסגנון מאפייה יצרנית: עלינו, מוצרים, איכות ויצירת קשר."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
-    <a class="skipLink" href="#main-content">דלגו לתוכן הראשי</a>
-
-    <!-- פס עליון -->
-    <div class="topbar">
-      <div class="container topbar__inner">
-        <p>הכל חם הכל טרי • כשר</p>
-        <a class="topbar__link" href="#contact">הזמנות / יצירת קשר</a>
-      </div>
-    </div>
-
-    <div class="accessibilityDock">
+    <div class="accessibilityDock" id="accessibility-dock">
       <button
-        class="accessibilityToggle"
-        id="accessibility-toggle"
+        class="accessibilityMenuToggle"
+        id="accessibility-menu-toggle"
         type="button"
-        aria-pressed="false"
-        aria-label="הפעלת מצב נגישות גבוהה"
+        aria-expanded="false"
+        aria-controls="accessibility-actions"
+        aria-label="פתיחת אפשרויות נגישות"
       >
         <span class="accessibilityToggle__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false">
@@ -37,473 +27,351 @@
             <path d="M7.7 10.2h8.6a1 1 0 1 1 0 2H13v1.9l2.1 4.2a1 1 0 1 1-1.79.9L12 16.6l-1.31 2.6a1 1 0 1 1-1.79-.9L11 14.1v-1.9H7.7a1 1 0 1 1 0-2Z"/>
           </svg>
         </span>
-        <span class="accessibilityToggle__text">נגישות</span>
       </button>
-      <a class="accessibilityDock__link" href="#accessibility-statement">הצהרת נגישות</a>
+      <div class="accessibilityActions" id="accessibility-actions">
+        <button
+          class="accessibilityToggle"
+          id="accessibility-toggle"
+          type="button"
+          aria-pressed="false"
+          aria-label="הפעלת מצב נגישות גבוהה"
+        >
+          <span class="accessibilityToggle__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="7.2" r="1.6"/>
+              <path d="M7.7 10.2h8.6a1 1 0 1 1 0 2H13v1.9l2.1 4.2a1 1 0 1 1-1.79.9L12 16.6l-1.31 2.6a1 1 0 1 1-1.79-.9L11 14.1v-1.9H7.7a1 1 0 1 1 0-2Z"/>
+            </svg>
+          </span>
+          <span class="accessibilityToggle__text">נגישות</span>
+        </button>
+        <a class="accessibilityDock__link" href="#accessibility-statement">הצהרת נגישות</a>
+      </div>
     </div>
 
-    <!-- כותרת / ניווט -->
+    <div class="topStrip">
+      <div class="container topStrip__inner">
+        <span> הכל חם הכל טרי • כשר בד״ץ</span>
+        <a class="topStrip__phone" href="tel:+972523813599">הזמנות / יצירת קשר</a>
+      </div>
+    </div>
+
     <header class="header">
       <div class="container header__inner">
-        <a class="brand" href="#main-content">
-          <img src="assets/icons/logo.png" alt="לוגו לחם חם" class="logo" />
-          <span class="brand__text">
-            <strong>לחם חם</strong>
-            <small>מאפייה</small>
-          </span>
-        </a>
-
-        <button
-          class="navToggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-        >
-          <span class="navToggle__icon" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-          <span class="navToggle__text">תפריט</span>
-        </button>
-
-        <nav id="site-nav" class="nav" aria-label="ניווט ראשי">
+        <nav class="nav nav--right" aria-label="ניווט ראשי ימני">
           <a href="#bestsellers">הכי נמכרים</a>
           <a href="#menu">תפריט</a>
           <a href="#about">עלינו</a>
+        </nav>
+
+        <a class="brand" href="#">
+          <img src="assets/icons/logo.png" alt="לוגו לחם חם" />
+        </a>
+
+        <nav class="nav nav--left" aria-label="ניווט ראשי שמאלי">
           <a href="#visit">שעות ומיקום</a>
-          <a class="btn btn--small" href="#contact">צור קשר</a>
+          <a href="#contact">צור קשר</a>
         </nav>
       </div>
     </header>
 
-    <main id="main-content" tabindex="-1">
-      <!-- HERO -->
+    <main>
       <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero__grid">
-          <div class="hero__content">
-            <h1 id="hero-title">טרי. חם. ממכר.</h1>
-            <p>
-              לחמים מיוחדים, מאפים מתוקים וכריכים — נאפה כאן כל בוקר. תבואו
-              מוקדם… כי הטובים נחטפים.
-            </p>
-
-            <div class="hero__cta">
-              <a class="btn" href="#menu">לצפייה בתפריט</a>
-              <a
-                class="btn btn--ghost"
-                href="https://wa.me/972523813599?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%97%D7%9D%20%D7%97%D7%9D%20%F0%9F%91%8B%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%3A%20"
-                target="_blank"
-                rel="noopener"
-                >הזמנה בוואטסאפ</a
-              >
-            </div>
-
-            <ul class="hero__badges" aria-label="יתרונות המאפייה">
-              <li>✅ נאפה טרי כל יום</li>
-              <li>✅ הזמנות לאירועים</li>
-              <li>✅ טעמים מיוחדים</li>
-            </ul>
-          </div>
-
-          <div class="hero__card" aria-label="תמונת מוצר">
-            <div
-              class="hero__img"
-              role="img"
-              aria-label="לחמים ומאפים טריים"
-            ></div>
-            <div class="hero__cardFooter">
-              <a class="link" href="#bestsellers">קפיצה להכי נמכרים ←</a>
-            </div>
+        <div class="container hero__content">
+          <p class="hero__eyebrow">לחם חם • מאפיית לחם קווקזי</p>
+          <h1 id="hero-title">טרי. חם. ממכר.</h1>
+          <p>
+            לחמים מיוחדים, מאפים מתוקים וכריכים — נאפה כאן כל בוקר. תבואו
+            מוקדם… כי הטובים נחטפים.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="#menu">לצפייה בתפריט</a>
+            <a class="btn" href="https://wa.me/972523813599?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%97%D7%9D%20%D7%97%D7%9D%20%F0%9F%91%8B%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%3A%20" target="_blank" rel="noopener">הזמנה בוואטסאפ</a>
           </div>
         </div>
       </section>
 
-      <!-- BEST SELLERS -->
-      <section id="bestsellers" class="section" aria-labelledby="bestsellers-title">
+      <section class="section" id="about" aria-labelledby="about-title">
         <div class="container">
-          <div class="section__head">
-            <h2 id="bestsellers-title">הכי נמכרים</h2>
-            <p>הכוכבים שחוזרים על עצמם — כל פעם מחדש.</p>
+          <div class="sectionTitle">
+            <h2 id="about-title">קצת עלינו</h2>
           </div>
 
-          <div class="grid cards">
-            <article class="card" aria-labelledby="bestseller-1-title">
-              <div class="card__img card__img--1" aria-hidden="true"></div>
-              <div class="card__body">
-                <h3 id="bestseller-1-title">לחם קווקזי</h3>
-                <p>קריספי מבחוץ ורך מבפנים.</p>
-                <div class="card__meta">
-                  <span class="pill">טרי יומי</span>
-                  <span class="price">₪8</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card" aria-labelledby="bestseller-2-title">
-              <div class="card__img card__img--2" aria-hidden="true"></div>
-              <div class="card__body">
-                <h3 id="bestseller-2-title">פרנה</h3>
-                <p>נאפה בטבון אבן, אוורירי מבפנים ועשיר בשמן זית.</p>
-                <div class="card__meta">
-                  <span class="pill">טרי יומי</span>
-                  <span class="price">₪12</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card" aria-labelledby="bestseller-3-title">
-              <div class="card__img card__img--3" aria-hidden="true"></div>
-              <div class="card__body">
-                <h3 id="bestseller-3-title">פיצה פס</h3>
-                <p>תכירו את הפיצה שמשגעת את המדינה.</p>
-                <div class="card__meta">
-                  <span class="pill">טרי יומי</span>
-                  <span class="price">₪32</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- MENU -->
-      <section id="menu" class="section section--alt" aria-labelledby="menu-title">
-        <div class="container">
-          <div class="section__head">
-            <h2 id="menu-title">תפריט</h2>
-            <div class="section__headActions">
-              <p id="menu-help">כל הבחירות שלכם כאן מתעדכנות אוטומטית בטופס ההזמנות. אפשר להוסיף או להפחית כמויות עם הכפתורים שליד כל מוצר.</p>
-              <a class="btn btn--small btn--ghost" href="#contact">לטופס ההזמנה</a>
-            </div>
-          </div>
-
-          <p class="srOnly" id="menu-selection-status" aria-live="polite"></p>
-
-          <div class="menuGrid">
-            <div class="menuBox" aria-labelledby="menu-group-breads">
-              <h3 id="menu-group-breads">לחמים</h3>
-              <ul class="menuList" aria-describedby="menu-help">
-                <li><span>לחם קווקזי</span><span class="muted">₪8</span></li>
-                <li><span>לחם גרוזיני</span><span class="muted">₪8</span></li>
-                <li><span>לחם בוכרי</span><span class="muted">₪8</span></li>
-                <li><span>לחם טורקי</span><span class="muted">₪8</span></li>
-                <li><span>לחם בית</span><span class="muted">₪10</span></li>
-                <li><span>לחם איראני</span><span class="muted">₪12</span></li>
-                <li><span>לחם רוסי</span><span class="muted">₪12</span></li>
-                <li><span>באגט (5 יח׳)</span><span class="muted">₪12</span></li>
-                <li>
-                  <span>פיתות (10 יח׳)</span><span class="muted">₪14</span>
-                </li>
-                <li>
-                  <span>לחם פרנה גדול</span><span class="muted">₪12</span>
-                </li>
-                <li><span>לחם פרנה קטן</span><span class="muted">₪7</span></li>
-              </ul>
-            </div>
-            <div class="menuBox" aria-labelledby="menu-group-rolls">
-              <h3 id="menu-group-rolls">חלות ולחמניות</h3>
-              <ul class="menuList" aria-describedby="menu-help">
-                <li><span>אצבע</span><span class="muted">₪1.5</span></li>
-                <li><span>אצבע כפרי</span><span class="muted">₪2</span></li>
-
-                <li><span>קלוע</span><span class="muted">₪3</span></li>
-                <li><span>קשר</span><span class="muted">₪3</span></li>
-                <li><span>טונה</span><span class="muted">₪3</span></li>
-                <li><span>בורגר</span><span class="muted">₪3</span></li>
-                <li><span>בייגל טוסט</span><span class="muted">₪4</span></li>
-                <li><span>חלת שניצל</span><span class="muted">₪5</span></li>
-                <li><span>מיני חלה</span><span class="muted">₪8</span></li>
-                <li><span>חלה גדולה</span><span class="muted">₪10</span></li>
-                <li><span>חלה מתוקה</span><span class="muted">₪12</span></li>
-                <li><span>חלת פרח</span><span class="muted">₪12</span></li>
-                <li><span>חלה שבלול</span><span class="muted">₪12</span></li>
-              </ul>
-            </div>
-
-            <div class="menuBox" aria-labelledby="menu-group-pastries">
-              <h3 id="menu-group-pastries">מאפים ובורקסים</h3>
-              <ul class="menuList" aria-describedby="menu-help">
-                <li><span>בורקס גבינה</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>בורקס תפוח אדמה</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>בורקס פטריות</span><span class="muted">₪50 לקילו</span></li>
-                <li><span> הורקס אגרול</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>בורקס פיצה</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>בורקיטס</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>רוגלאך</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>קוראסון שוקולד</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>קוראסון חמאה</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>מאפה וניל</span><span class="muted">₪50 לקילו</span></li>
-                <li><span>מאפה תפוחים</span><span class="muted">₪50 לקילו</span></li>
-                <li><span> מאפה גביניה</span><span class="muted">₪50 לקילו</span></li>
-              </ul>
-            </div>
-
-            <div class="menuBox" aria-labelledby="menu-group-sourdough">
-              <h3 id="menu-group-sourdough">מחמצות</h3>
-              <ul class="menuList" aria-describedby="menu-help">
-                <li><span>כיכר מחמצת אגוזים</span><span class="muted">₪25</span></li>
-                <li><span>כיכר מחמצת בצל</span><span class="muted">₪25</span></li>
-                <li><span>כיכר מחמצת זיתים קלמטה</span><span class="muted">₪25</span></li>
-                <li><span>כיכר מחמצת צימוקים</span><span class="muted">₪25</span></li>
-                <li><span>כיכר מחמצת סלק</span><span class="muted">₪25</span></li>
-                <li><span>כיכר מחמצת עגבניה</span><span class="muted">₪25</span></li>
-                <li><span>כיכר מחמצת צרפתי</span><span class="muted">₪25</span></li>
-                <li><span>באגט מחמצת</span><span class="muted">₪12</span></li>
-                 <li><span> רוסטיק חיטה מלאה</span><span class="muted">₪7</span></li>
-                 <li><span> רוסטיק רגיל</span><span class="muted">₪7</span></li>
-              </ul>
-            </div>
-
-                 <div class="menuBox" aria-labelledby="menu-group-savory">
-              <h3 id="menu-group-savory">מלוחים ומיוחדים</h3>
-              <ul class="menuList" aria-describedby="menu-help">
-                <li><span>פס פיצה</span><span class="muted">₪32</span></li>
-                <li><span>פס שקשוקה</span><span class="muted">₪32</span></li>
-                <li><span>פס תרד</span><span class="muted">₪32</span></li>
-                <li><span>פס בצל</span><span class="muted">₪32</span></li>
-                <li><span>מקל שום</span><span class="muted">₪5</span></li>
-                <li><span>מקל זעתר</span><span class="muted">₪5</span></li>
-                <li><span>בייגלה רומני עם שומשום</span><span class="muted">₪5</span></li>
-                <li><span>בייגלה רומני עם מלח</span><span class="muted">₪5</span></li>
-
-
-
-              </ul>
-            </div>
-            <div class="menuBox menuBox--note">
-              <h3>הזמנות לאירועים</h3>
-              <p class="muted">
-                מגשים למשרד, ימי הולדת, שבת — אנחנו מסדרים לכם את זה טרי ומוכן.
-                כתבו לנו מה אתם צריכים ונחזור עם הצעת מחיר.
+          <div class="aboutGrid">
+            <div class="aboutText">
+              <h3>מאפייה של בוקר, משפחה וטעם מוכר</h3>
+              <p>
+                לחם חם היא מאפייה מקומית שמכינה בכל יום לחמים, חלות, מחמצות
+                ומאפים מיוחדים. אנחנו עובדים עם בצקים טריים, אפייה לאורך היום
+                ושירות מהיר להזמנות משפחתיות ולאירועים.
               </p>
-              <a
-                class="btn btn--small"
-                href="https://wa.me/972523813599?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%97%D7%9D%20%D7%97%D7%9D%20%F0%9F%91%8B%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%90%D7%99%D7%A8%D7%95%D7%A2%3A%20"
-                target="_blank"
-                rel="noopener"
-                >שלחו הודעה בוואטסאפ</a
-              >
+              <p>
+                המטרה פשוטה: שתגיעו, תריחו את התנור, ותצאו עם שקית חמה של דברים
+                שאי אפשר להשאיר לרגע על השולחן.
+              </p>
+              <a class="btn btn--gold" href="#contact">דברו איתנו</a>
             </div>
+            <div class="aboutImage" role="img" aria-label="לחם קווקזי טרי"></div>
           </div>
-
-      
         </div>
       </section>
 
-      <!-- ABOUT -->
-      <section id="about" class="section" aria-labelledby="about-title">
-        <div class="container split">
-          <div>
-            <h2 id="about-title">עלינו</h2>
-            <p>
-              אנחנו מאפייה בשוק הערוני — שמתמקצה בלחמים מיוחדים ובעיקר טעימים. תמיד יש מגוון רחב של לחמים שמתחדשים על המדף לאורך כל היום. אנחנו מכינים בצקים כל יום ואופים לאורך היום כדי שהריח
-              יישאר… מסוכן.
-            </p>
-       
+      <section class="section features" id="quality" aria-labelledby="quality-title">
+        <div class="container">
+          <div class="sectionTitle">
+            <h2 id="quality-title">מה מייחד אותנו?</h2>
           </div>
 
-          <div class="infoCard">
-            <h3>למה חוזרים אלינו</h3>
-            <ul class="checklist">
-              <li>לחם חם לאורך היום</li>
-              <li>צורות מיוחדות + מבצעים עונתיים</li>
-              <li>איסוף מהיר ושירות עם חיוך</li>
-              <li>מעולה למשפחות ולאירועים</li>
+          <div class="featureGrid">
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true">✦</div>
+              <h3>אפייה לאורך היום</h3>
+              <p>המדפים מתחדשים כדי שהמאפים יגיעו חמים וריחניים.</p>
+            </article>
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true">✓</div>
+              <h3>כשר</h3>
+              <p>מוצרים שמתאימים לשבת, אירועים, משפחות ועסקים.</p>
+            </article>
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true">★</div>
+              <h3>מגוון רחב</h3>
+              <p>לחמים, חלות, מחמצות, בורקסים ומלוחים מיוחדים.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section products" id="bestsellers" aria-labelledby="bestsellers-title">
+        <div class="container">
+          <div class="sectionTitle">
+            <h2 id="bestsellers-title">הכי נמכרים</h2>
+          </div>
+
+          <div class="productGrid">
+            <article class="productCard">
+              <div class="productCard__image productCard__image--bread" aria-hidden="true"></div>
+              <div class="productCard__body">
+                <h3>לחם קווקזי</h3>
+                <a href="#menu">₪8 • טרי יומי</a>
+              </div>
+            </article>
+            <article class="productCard">
+              <div class="productCard__image productCard__image--frena" aria-hidden="true"></div>
+              <div class="productCard__body">
+                <h3>פרנה</h3>
+                <a href="#menu">₪12 • נאפה בטבון</a>
+              </div>
+            </article>
+            <article class="productCard">
+              <div class="productCard__image productCard__image--pizza" aria-hidden="true"></div>
+              <div class="productCard__body">
+                <h3>פיצה פס</h3>
+                <a href="#menu">₪32 • טרי יומי</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section catalogBand" id="menu" aria-labelledby="menu-title">
+        <div class="container">
+          <div class="sectionTitle">
+            <h2 id="menu-title">תפריט</h2>
+          </div>
+          <div class="menuControls">
+            <label for="menu-category-select">
+              בחרו קטגוריה
+              <select id="menu-category-select" aria-controls="menu-grid">
+              </select>
+            </label>
+          </div>
+
+          <div class="orderLayout">
+            <div class="fullMenuGrid" id="menu-grid">
+              <article class="menuCategory">
+                <h3>לחמים</h3>
+                <ul class="menuProducts">
+                <li><span>לחם קווקזי</span><span>₪8</span></li>
+                <li><span>לחם גרוזיני</span><span>₪8</span></li>
+                <li><span>לחם בוכרי</span><span>₪8</span></li>
+                <li><span>לחם טורקי</span><span>₪8</span></li>
+                <li><span>לחם בית</span><span>₪10</span></li>
+                <li><span>לחם איראני</span><span>₪12</span></li>
+                <li><span>לחם רוסי</span><span>₪12</span></li>
+                <li><span>באגט (5 יח׳)</span><span>₪12</span></li>
+                <li><span>פיתות (10 יח׳)</span><span>₪14</span></li>
+                <li><span>לחם פרנה גדול</span><span>₪12</span></li>
+                <li><span>לחם פרנה קטן</span><span>₪7</span></li>
+                </ul>
+              </article>
+
+              <article class="menuCategory">
+                <h3>חלות ולחמניות</h3>
+                <ul class="menuProducts">
+                <li><span>אצבע</span><span>₪1.5</span></li>
+                <li><span>אצבע כפרי</span><span>₪2</span></li>
+                <li><span>קלוע</span><span>₪3</span></li>
+                <li><span>קשר</span><span>₪3</span></li>
+                <li><span>טונה</span><span>₪3</span></li>
+                <li><span>בורגר</span><span>₪3</span></li>
+                <li><span>בייגל טוסט</span><span>₪4</span></li>
+                <li><span>חלת שניצל</span><span>₪5</span></li>
+                <li><span>מיני חלה</span><span>₪8</span></li>
+                <li><span>חלה גדולה</span><span>₪10</span></li>
+                <li><span>חלה מתוקה</span><span>₪12</span></li>
+                <li><span>חלת פרח</span><span>₪12</span></li>
+                <li><span>חלה שבלול</span><span>₪12</span></li>
+                </ul>
+              </article>
+
+              <article class="menuCategory">
+                <h3>מאפים ובורקסים</h3>
+                <ul class="menuProducts">
+                <li><span>בורקס גבינה</span><span>₪50 לקילו</span></li>
+                <li><span>בורקס תפוח אדמה</span><span>₪50 לקילו</span></li>
+                <li><span>בורקס פטריות</span><span>₪50 לקילו</span></li>
+                <li><span>הורקס אגרול</span><span>₪50 לקילו</span></li>
+                <li><span>בורקס פיצה</span><span>₪50 לקילו</span></li>
+                <li><span>בורקיטס</span><span>₪50 לקילו</span></li>
+                <li><span>רוגלאך</span><span>₪50 לקילו</span></li>
+                <li><span>קוראסון שוקולד</span><span>₪50 לקילו</span></li>
+                <li><span>קוראסון חמאה</span><span>₪50 לקילו</span></li>
+                <li><span>מאפה וניל</span><span>₪50 לקילו</span></li>
+                <li><span>מאפה תפוחים</span><span>₪50 לקילו</span></li>
+                <li><span>מאפה גביניה</span><span>₪50 לקילו</span></li>
+                </ul>
+              </article>
+
+              <article class="menuCategory">
+                <h3>מחמצות</h3>
+                <ul class="menuProducts">
+                <li><span>כיכר מחמצת אגוזים</span><span>₪25</span></li>
+                <li><span>כיכר מחמצת בצל</span><span>₪25</span></li>
+                <li><span>כיכר מחמצת זיתים קלמטה</span><span>₪25</span></li>
+                <li><span>כיכר מחמצת צימוקים</span><span>₪25</span></li>
+                <li><span>כיכר מחמצת סלק</span><span>₪25</span></li>
+                <li><span>כיכר מחמצת עגבניה</span><span>₪25</span></li>
+                <li><span>כיכר מחמצת צרפתי</span><span>₪25</span></li>
+                <li><span>באגט מחמצת</span><span>₪12</span></li>
+                <li><span>רוסטיק חיטה מלאה</span><span>₪7</span></li>
+                <li><span>רוסטיק רגיל</span><span>₪7</span></li>
+                </ul>
+              </article>
+
+              <article class="menuCategory">
+                <h3>מלוחים ומיוחדים</h3>
+                <ul class="menuProducts">
+                <li><span>פס פיצה</span><span>₪32</span></li>
+                <li><span>פס שקשוקה</span><span>₪32</span></li>
+                <li><span>פס תרד</span><span>₪32</span></li>
+                <li><span>פס בצל</span><span>₪32</span></li>
+                <li><span>מקל שום</span><span>₪5</span></li>
+                <li><span>מקל זעתר</span><span>₪5</span></li>
+                <li><span>בייגלה רומני עם שומשום</span><span>₪5</span></li>
+                <li><span>בייגלה רומני עם מלח</span><span>₪5</span></li>
+                </ul>
+              </article>
+
+              <article class="menuCategory">
+                <h3>הזמנות לאירועים</h3>
+                <p>
+                  מגשים למשרד, ימי הולדת, שבת — אנחנו מסדרים לכם את זה טרי ומוכן.
+                  כתבו לנו מה אתם צריכים ונחזור עם הצעת מחיר.
+                </p>
+                <a class="btn btn--gold" href="https://wa.me/972523813599?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%97%D7%9D%20%D7%97%D7%9D%20%F0%9F%91%8B%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%90%D7%99%D7%A8%D7%95%D7%A2%3A%20" target="_blank" rel="noopener">שלחו הודעה בוואטסאפ</a>
+              </article>
+            </div>
+
+            <aside class="menuCart" aria-labelledby="cart-title">
+              <h3 id="cart-title">ההזמנה שלך</h3>
+              <div class="cartLines" id="cart-lines">
+                <p class="cartEmpty">עדיין לא נבחרו מוצרים.</p>
+              </div>
+              <div class="cartTotal">
+                <span>סה״כ</span>
+                <strong id="cart-total">₪0</strong>
+              </div>
+              <a class="btn btn--gold" id="cart-checkout" href="https://wa.me/972523813599" target="_blank" rel="noopener">שליחה בוואטסאפ</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section visit" id="visit" aria-labelledby="visit-title">
+        <div class="container">
+          <div class="sectionTitle">
+            <h2 id="visit-title">שעות ומיקום</h2>
+          </div>
+          <div class="visitGrid">
+            <article class="visitBox">
+              <h3>שעות פתיחה</h3>
+              <p>
+                א׳–ה׳: 05:00–17:00<br />
+                ו׳: 05:00–15:30<br />
+                שבת: סגור
+              </p>
+            </article>
+            <article class="visitBox">
+              <h3>כתובת</h3>
+              <p>
+                השווקים 173<br />
+                באר שבע
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="container contactGrid">
+          <div class="contactPanel">
+            <h2 id="contact-title">נשמח לעמוד לשירותכם</h2>
+            <p>
+              להזמנות מהירות, שאלות על מוצרים או הזמנות לאירועים - אפשר לשלוח
+              הודעה ונחזור אליכם בהקדם.
+            </p>
+            <ul class="contactList">
+              <li><strong>טלפון:</strong> <a href="tel:+972523813599">052-381-3599</a></li>
+              <li><strong>וואטסאפ:</strong> <a href="https://wa.me/972523813599" target="_blank" rel="noopener">שליחת הודעה</a></li>
+              <li><strong>כתובת:</strong> השווקים 173, באר שבע</li>
+              <li><strong>שעות:</strong> א׳-ה׳ 05:00-17:00, ו׳ 05:00-15:30</li>
             </ul>
           </div>
-        </div>
-      </section>
 
-      <!-- VISIT -->
-      <section id="visit" class="section section--alt" aria-labelledby="visit-title">
-        <div class="container split">
-          <div class="visitCard">
-            <h2 id="visit-title">שעות ומיקום</h2>
-
-            <div class="visitGrid">
-              <div>
-                <h4>שעות פתיחה</h4>
-                <p class="muted">
-                  א׳–ה׳: 05:00–17:00<br />
-                  ו׳: 05:00–15:30<br />
-                  שבת: סגור
-                </p>
-              </div>
-              <div>
-                <h4>כתובת</h4>
-                <p class="muted">השווקים 173<br />באר שבע</p>
-              </div>
-            </div>
-
-            <div class="visitActions">
-              <a
-                class="btn btn--small"
-                href="https://wa.me/972523813599"
-                target="_blank"
-                rel="noopener"
-                >וואטסאפ</a
-              >
-              <a class="btn btn--small btn--ghost" href="#contact"
-                >איך מגיעים</a
-              >
-            </div>
-          </div>
-
-          <div class="mapMock" aria-label="מפה">
-            <iframe
-              class="mapMock__frame"
-              title="מפת הגעה - השווקים 173 באר שבע"
-              src="https://maps.google.com/maps?q=%D7%94%D7%A9%D7%95%D7%95%D7%A7%D7%99%D7%9D%20173%2C%20%D7%91%D7%90%D7%A8%20%D7%A9%D7%91%D7%A2&z=16&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="section" aria-labelledby="contact-title">
-        <div class="container contact">
-          <div class="contact__text">
-            <h2 id="contact-title">יצירת קשר והזמנות</h2>
-            <p class="muted">
-              להזמנות מהירות — הכי קל בוואטסאפ. להזמנות מיוחדות — השאירו הודעה
-              ונחזור אליכם.
-            </p>
-
-            <div class="contact__icons" aria-label="קישורי יצירת קשר">
-              <a
-                class="contactIcon"
-                href="tel:+972523813599"
-                aria-label="חייגו אלינו"
-                title="טלפון"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24c1.08.36 2.24.54 3.43.54a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.3 21 3 13.7 3 4.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.19.18 2.35.54 3.43a1 1 0 0 1-.24 1z"
-                  />
-                </svg>
-                <span>טלפון</span>
-              </a>
-              <a
-                class="contactIcon"
-                href="https://wa.me/972523813599"
-                target="_blank"
-                rel="noopener"
-                aria-label="שלחו לנו וואטסאפ"
-                title="וואטסאפ"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .15 5.34.15 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.28-1.64a11.9 11.9 0 0 0 5.8 1.49h.01c6.57 0 11.92-5.35 11.92-11.93 0-3.18-1.24-6.16-3.49-8.44ZM12.08 21.8a9.88 9.88 0 0 1-5.03-1.38l-.36-.21-3.73.98 1-3.64-.24-.37a9.84 9.84 0 0 1-1.52-5.27c0-5.46 4.43-9.9 9.89-9.9 2.64 0 5.12 1.03 6.99 2.91a9.82 9.82 0 0 1 2.9 7c0 5.45-4.44 9.89-9.9 9.89Zm5.43-7.42c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.08-.3-.15-1.26-.47-2.4-1.48-.88-.78-1.48-1.74-1.66-2.03-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.53.08-.8.38-.27.3-1.03 1-1.03 2.45s1.05 2.84 1.2 3.04c.15.2 2.06 3.15 4.98 4.42.7.3 1.25.48 1.67.61.7.22 1.33.19 1.83.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"
-                  />
-                </svg>
-                <span>וואטסאפ</span>
-              </a>
-              <a
-                class="contactIcon"
-                href="mailto:nikodeal@gmail.com"
-                aria-label="שלחו לנו אימייל"
-                title="אימייל"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.03-8 4.99-8-4.99V6l8 5 8-5Z"
-                  />
-                </svg>
-                <span>אימייל</span>
-              </a>
-            </div>
-
-    
-          </div>
-
-          <form class="form" id="contact-form" action="#" method="post" novalidate aria-describedby="form-help form-status">
-            <p class="srOnly" id="form-help">מלאו שם וטלפון, בחרו אופן קבלת הזמנה, וההזמנה שבחרתם בתפריט תופיע כאן אוטומטית.</p>
+          <form class="form" action="#" method="post">
             <label>
-              שם
-              <input id="contact-name" type="text" name="name" placeholder="השם שלך" autocomplete="name" required />
+              שם מלא
+              <input type="text" name="name" autocomplete="name" />
             </label>
-
             <label>
-          טלפון
-              <input
-                id="contact-phone"
-                type="tel"
-                name="contact"
-                inputmode="tel"
-                autocomplete="tel"
-                placeholder="איך ניצור איתך קשר?"
-                aria-describedby="contact-phone-help"
-                required
-              />
+              טלפון
+              <input type="tel" name="phone" autocomplete="tel" />
             </label>
-            <p class="muted tiny" id="contact-phone-help">אפשר להזין טלפון נייד או מספר ליצירת קשר.</p>
-
-            <fieldset class="deliveryOptions" aria-describedby="delivery-help">
-              <legend>אופן קבלת ההזמנה</legend>
-              <label class="deliveryOption">
-                <input type="radio" name="deliveryMethod" value="איסוף עצמי" checked />
-                <span>איסוף עצמי</span>
-              </label>
-              <label class="deliveryOption">
-                <input type="radio" name="deliveryMethod" value="משלוח" />
-                <span>משלוח</span>
-              </label>
-              <p class="muted tiny" id="delivery-help">משלוח כרוך בתוספת תשלום של 20 ש״ח.</p>
-            </fieldset>
-
-            <label>
-              ההזמנה שבחרת
-              <textarea
-                id="order-summary"
-                name="order"
-                rows="5"
-                placeholder="לחצו על מוצרים בתפריט כדי להוסיף אותם להזמנה"
-                aria-describedby="menu-help total-help"
-                readonly
-              ></textarea>
-            </label>
-
-            <div class="orderTotal" aria-live="polite" aria-atomic="true">
-              <span class="orderTotal__label">סכום לתשלום</span>
-              <strong class="orderTotal__value" id="order-total">₪0</strong>
-            </div>
-            <p class="muted tiny" id="total-help">הסכום מתעדכן לפי המוצרים שבחרתם, ובמשלוח מתווספים 20 ש״ח.</p>
-
             <label>
               הודעה
-              <textarea
-                id="contact-message"
-                name="message"
-                rows="4"
-                placeholder="הערות נוספות להזמנה"
-              ></textarea>
+              <textarea name="message" rows="5"></textarea>
             </label>
-
-            <button class="btn" type="submit">שליחה</button>
-            <p class="muted tiny" id="form-status" role="status" aria-live="polite"></p>
-          
+            <a class="btn btn--gold" href="https://wa.me/972523813599" target="_blank" rel="noopener">שליחה בוואטסאפ</a>
           </form>
         </div>
       </section>
 
       <section
         id="accessibility-statement"
-        class="section section--alt"
+        class="section catalogBand"
         aria-labelledby="accessibility-statement-title"
       >
         <div class="container">
-          <div class="section__head">
+          <div class="sectionTitle">
             <h2 id="accessibility-statement-title">הצהרת נגישות</h2>
-            <p>
-              אנחנו פועלים כדי לאפשר גלישה נוחה, ברורה ונגישה יותר לכלל
-              המשתמשים, כולל שימוש במקלדת, קוראי מסך והתאמות תצוגה.
-            </p>
           </div>
+          <p>
+            אנחנו פועלים כדי לאפשר גלישה נוחה, ברורה ונגישה יותר לכלל
+            המשתמשים, כולל שימוש במקלדת, קוראי מסך והתאמות תצוגה.
+          </p>
 
-          <div class="grid statementGrid">
+          <div class="statementGrid">
             <article class="statementCard">
               <h3>מה קורה כשמפעילים מצב נגישות</h3>
               <ul class="statementList">
@@ -519,17 +387,16 @@
             <article class="statementCard">
               <h3>שיפורי נגישות קבועים באתר</h3>
               <ul class="statementList">
-                <li>יש קישור `דלגו לתוכן הראשי` למעבר מהיר עם מקלדת.</li>
                 <li>מבנה העמוד מסודר לפי אזורים וכותרות ברורות.</li>
-                <li>לטופס ההזמנה יש תוויות, עזרי טקסט והודעות סטטוס נגישות.</li>
-                <li>מוצרי התפריט ניתנים להפעלה גם עם מקלדת וללא שימוש בעכבר.</li>
-                <li>ניתן למלא את פרטי ההזמנה ולשלוח אותם לוואטסאפ בצורה קריאה ומסודרת.</li>
+                <li>לתפריט ההזמנה יש תוויות, כפתורי כמות והודעות ברורות.</li>
+                <li>ניתן לבחור קטגוריות, להוסיף מוצרים ולשלוח הזמנה בצורה קריאה.</li>
+                <li>לטופס פרטי ההזמנה יש שדות חובה ברורים לפני שליחה לוואטסאפ.</li>
               </ul>
             </article>
 
             <article class="statementCard">
               <h3>פנייה בנושא נגישות</h3>
-              <p class="muted">
+              <p>
                 אם נתקלתם בקושי בגלישה או בתוכן שאינו נגיש מספיק, נשמח שתעדכנו
                 אותנו כדי שנוכל לשפר.
               </p>
@@ -544,34 +411,79 @@
       </section>
     </main>
 
+    <div class="orderModal" id="order-modal" aria-hidden="true">
+      <div class="orderModal__panel" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
+        <div class="orderModal__head">
+          <div>
+            <h3 id="order-modal-title">פרטי הזמנה</h3>
+            <p>מלאו פרטים כדי שנוכל להכין את ההזמנה וליצור קשר במידת הצורך.</p>
+          </div>
+          <button class="modalClose" id="order-modal-close" type="button" aria-label="סגירת חלון פרטי הזמנה">×</button>
+        </div>
+
+        <form class="orderForm" id="customer-order-form" novalidate>
+          <label>
+            שם מלא
+            <input id="customer-name" name="customerName" type="text" autocomplete="name" required />
+          </label>
+
+          <label>
+            טלפון
+            <input id="customer-phone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" required />
+          </label>
+
+          <fieldset class="deliveryChoices">
+            <legend>אופן קבלת ההזמנה</legend>
+            <label>
+              <input type="radio" name="deliveryMethod" value="איסוף עצמי" checked />
+              איסוף עצמי
+            </label>
+            <label>
+              <input type="radio" name="deliveryMethod" value="משלוח" />
+              משלוח
+            </label>
+          </fieldset>
+
+          <p class="formStatus" id="order-form-status" role="status" aria-live="polite"></p>
+          <button class="btn btn--gold" type="submit">שליחה</button>
+        </form>
+      </div>
+    </div>
+
+    <button class="mobileCartJump" id="mobile-cart-jump" type="button">
+      <span id="mobile-cart-label">הסל שלך</span>
+      <strong id="mobile-cart-total">₪0</strong>
+    </button>
+
     <footer class="footer">
       <div class="container footer__inner">
-        <p>© <span id="year"></span> לחם חם. כל הזכויות שמורות.</p>
-        <div class="footer__links">
-          <a href="#menu">תפריט</a>
-          <a href="#visit">שעות ומיקום</a>
-          <a href="#contact">צור קשר</a>
-          <a href="#accessibility-statement">הצהרת נגישות</a>
-        </div>
+        <span>© <span id="year"></span> לחם חם</span>
+        <span>מאפייה משפחתית • באר שבע</span>
       </div>
     </footer>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
-      const navToggle = document.querySelector(".navToggle");
-      const nav = document.getElementById("site-nav");
-      const accessibilityToggle = document.getElementById("accessibility-toggle");
-      const contactForm = document.getElementById("contact-form");
-      const orderSummaryField = document.getElementById("order-summary");
-      const orderTotalField = document.getElementById("order-total");
-      const formStatus = document.getElementById("form-status");
-      const menuSelectionStatus = document.getElementById("menu-selection-status");
-      const mainContent = document.getElementById("main-content");
-      const deliveryInputs = document.querySelectorAll('input[name="deliveryMethod"]');
-      const menuItems = document.querySelectorAll(".menuList li");
+
       const whatsappNumber = "972523813599";
+      const logoImage = document.querySelector(".brand img");
+      const accessibilityDock = document.getElementById("accessibility-dock");
+      const accessibilityMenuToggle = document.getElementById("accessibility-menu-toggle");
+      const accessibilityToggle = document.getElementById("accessibility-toggle");
+      const menuCategorySelect = document.getElementById("menu-category-select");
+      const menuGrid = document.getElementById("menu-grid");
+      const menuCategories = document.querySelectorAll(".menuCategory");
+      const cartLines = document.getElementById("cart-lines");
+      const cartTotal = document.getElementById("cart-total");
+      const cartCheckout = document.getElementById("cart-checkout");
+      const orderModal = document.getElementById("order-modal");
+      const orderModalClose = document.getElementById("order-modal-close");
+      const customerOrderForm = document.getElementById("customer-order-form");
+      const orderFormStatus = document.getElementById("order-form-status");
+      const mobileCartJump = document.getElementById("mobile-cart-jump");
+      const mobileCartLabel = document.getElementById("mobile-cart-label");
+      const mobileCartTotal = document.getElementById("mobile-cart-total");
       const selections = new Map();
-      const DELIVERY_FEE = 20;
       const ACCESSIBILITY_STORAGE_KEY = "bakeryAccessibilityMode";
 
       const applyAccessibilityMode = (enabled) => {
@@ -584,6 +496,7 @@
             "aria-label",
             enabled ? "כיבוי מצב נגישות גבוהה" : "הפעלת מצב נגישות גבוהה"
           );
+
           if (toggleText instanceof HTMLSpanElement) {
             toggleText.textContent = enabled ? "נגישות פעילה" : "נגישות";
           }
@@ -592,221 +505,282 @@
         localStorage.setItem(ACCESSIBILITY_STORAGE_KEY, enabled ? "on" : "off");
       };
 
-      const setStatusMessage = (element, message) => {
-        if (element instanceof HTMLElement) {
-          element.textContent = message;
-        }
-      };
-
-      if (navToggle && nav) {
-        navToggle.addEventListener("click", () => {
-          const isOpen = nav.classList.toggle("nav--open");
-          navToggle.setAttribute("aria-expanded", String(isOpen));
-        });
-
-        nav.addEventListener("click", (event) => {
-          if (
-            event.target instanceof HTMLElement &&
-            event.target.matches("a")
-          ) {
-            nav.classList.remove("nav--open");
-            navToggle.setAttribute("aria-expanded", "false");
-          }
-        });
-      }
-
       if (accessibilityToggle instanceof HTMLButtonElement) {
-        const storedAccessibilityMode =
-          localStorage.getItem(ACCESSIBILITY_STORAGE_KEY) === "on";
-        applyAccessibilityMode(storedAccessibilityMode);
+        applyAccessibilityMode(localStorage.getItem(ACCESSIBILITY_STORAGE_KEY) === "on");
 
         accessibilityToggle.addEventListener("click", () => {
           applyAccessibilityMode(!document.body.classList.contains("accessibility-mode"));
         });
       }
 
-      if (window.location.hash === "#main-content" && mainContent instanceof HTMLElement) {
-        mainContent.focus();
+      if (
+        accessibilityDock instanceof HTMLElement &&
+        accessibilityMenuToggle instanceof HTMLButtonElement
+      ) {
+        accessibilityMenuToggle.addEventListener("click", () => {
+          const isOpen = accessibilityDock.classList.toggle("accessibilityDock--open");
+          accessibilityMenuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        accessibilityDock.addEventListener("click", (event) => {
+          if (
+            event.target instanceof HTMLElement &&
+            event.target.matches(".accessibilityDock__link")
+          ) {
+            accessibilityDock.classList.remove("accessibilityDock--open");
+            accessibilityMenuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+
+      if (
+        logoImage instanceof HTMLImageElement &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        const rotateLogoOnScroll = () => {
+          logoImage.style.transform = `rotate(${window.scrollY * 0.35}deg)`;
+        };
+
+        rotateLogoOnScroll();
+        window.addEventListener("scroll", rotateLogoOnScroll, { passive: true });
       }
 
       const parsePrice = (priceText) => {
-        const normalized = priceText.replace(",", ".").match(/\d+(?:\.\d+)?/);
-        return normalized ? Number(normalized[0]) : 0;
+        const value = priceText.replace(",", ".").match(/\d+(?:\.\d+)?/);
+        return value ? Number(value[0]) : 0;
       };
 
-      const getDeliveryMethod = () => {
-        const selected = document.querySelector('input[name="deliveryMethod"]:checked');
-        return selected instanceof HTMLInputElement ? selected.value : "איסוף עצמי";
+      const formatTotal = (total) => `₪${total.toFixed(total % 1 === 0 ? 0 : 1)}`;
+
+      const getSelectedItems = () =>
+        [...selections.values()].filter((item) => item.quantity > 0);
+
+      const getSelectedTotal = (items = getSelectedItems()) =>
+        items.reduce((sum, item) => sum + parsePrice(item.price) * item.quantity, 0);
+
+      const openOrderModal = () => {
+        if (!(orderModal instanceof HTMLElement)) return;
+
+        orderModal.classList.add("is-open");
+        orderModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        document.getElementById("customer-name")?.focus();
       };
 
-      const updateOrderTotal = () => {
-        if (!(orderTotalField instanceof HTMLElement)) return;
+      const closeOrderModal = () => {
+        if (!(orderModal instanceof HTMLElement)) return;
 
-        let total = 0;
+        orderModal.classList.remove("is-open");
+        orderModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      };
 
-        selections.forEach((quantity, key) => {
-          if (quantity < 1) return;
-          const [, price] = key.split("||");
-          total += parsePrice(price) * quantity;
-        });
+      const updateCart = () => {
+        const selectedItems = getSelectedItems();
+        const total = getSelectedTotal(selectedItems);
+        const count = selectedItems.reduce((sum, item) => sum + item.quantity, 0);
 
-        if (getDeliveryMethod() === "משלוח") {
-          total += DELIVERY_FEE;
+        if (cartLines instanceof HTMLElement) {
+          cartLines.innerHTML = "";
+
+          if (selectedItems.length === 0) {
+            const empty = document.createElement("p");
+            empty.className = "cartEmpty";
+            empty.textContent = "עדיין לא נבחרו מוצרים.";
+            cartLines.append(empty);
+          } else {
+            selectedItems.forEach((item) => {
+              const line = document.createElement("div");
+              line.className = "cartLine";
+              line.innerHTML = `<span>${item.name} x${item.quantity}</span><strong>${item.price}</strong>`;
+              cartLines.append(line);
+            });
+          }
         }
 
-        orderTotalField.textContent = `₪${total.toFixed(total % 1 === 0 ? 0 : 1)}`;
+        if (cartTotal instanceof HTMLElement) {
+          cartTotal.textContent = formatTotal(total);
+        }
+
+        if (mobileCartLabel instanceof HTMLElement) {
+          mobileCartLabel.textContent =
+            count > 0 ? `הסל שלך • ${count} ${count === 1 ? "מוצר" : "מוצרים"}` : "הסל שלך";
+        }
+
+        if (mobileCartTotal instanceof HTMLElement) {
+          mobileCartTotal.textContent = formatTotal(total);
+        }
+
+        if (cartCheckout instanceof HTMLAnchorElement) {
+          cartCheckout.href = "#order-modal";
+          cartCheckout.textContent = selectedItems.length > 0 ? "שליחת הזמנה" : "בחרו מוצרים";
+          cartCheckout.setAttribute("aria-disabled", selectedItems.length > 0 ? "false" : "true");
+        }
       };
 
-      const updateOrderSummary = () => {
-        if (!(orderSummaryField instanceof HTMLTextAreaElement)) return;
+      if (menuCategorySelect instanceof HTMLSelectElement) {
+        menuCategories.forEach((category, index) => {
+          const title = category.querySelector("h3")?.textContent.trim();
+          if (!title) return;
 
-        const lines = [];
+          const value = `category-${index + 1}`;
+          category.setAttribute("data-category", value);
 
-        selections.forEach((quantity, key) => {
-          if (quantity < 1) return;
-
-          const [name, price] = key.split("||");
-          lines.push(`${name} x${quantity}${price ? ` - ${price}` : ""}`);
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = title;
+          menuCategorySelect.append(option);
         });
 
-        orderSummaryField.value = lines.length
-          ? lines.join("\n")
-          : "";
-        updateOrderTotal();
-      };
+        const applyCategory = () => {
+          const selectedCategory = menuCategorySelect.value;
 
-      menuItems.forEach((item, index) => {
-        const [nameNode, priceNode] = item.querySelectorAll("span");
+          menuCategories.forEach((category) => {
+            category.hidden = category.getAttribute("data-category") !== selectedCategory;
+          });
+
+          if (menuGrid instanceof HTMLElement) {
+            menuGrid.classList.add("fullMenuGrid--single");
+          }
+        };
+
+        if (menuCategories.length > 0) {
+          menuCategorySelect.value = "category-1";
+        }
+
+        menuCategorySelect.addEventListener("change", applyCategory);
+        applyCategory();
+      }
+
+      document.querySelectorAll(".menuProducts li").forEach((row) => {
+        const [nameNode, priceNode] = row.querySelectorAll("span");
         if (!(nameNode instanceof HTMLSpanElement) || !(priceNode instanceof HTMLSpanElement)) {
           return;
         }
 
         const name = nameNode.textContent.trim();
         const price = priceNode.textContent.trim();
-        const itemKey = `${name}||${price}`;
-        const itemId = `menu-item-${index + 1}`;
+        const key = `${name}||${price}`;
+        selections.set(key, { name, price, quantity: 0 });
 
-        item.classList.add("menuItem");
-        item.setAttribute("role", "group");
-        item.setAttribute("aria-labelledby", `${itemId}-name`);
-        nameNode.classList.add("menuItem__name");
-        nameNode.id = `${itemId}-name`;
-        priceNode.classList.add("menuItem__price");
+        row.classList.add("menuProduct");
+        nameNode.className = "menuProduct__name";
+        priceNode.className = "menuProduct__price";
 
-        const mainButton = document.createElement("button");
-        mainButton.type = "button";
-        mainButton.className = "menuItem__main";
-        mainButton.setAttribute("aria-describedby", "menu-help");
-        mainButton.setAttribute("aria-label", `הוספת ${name} להזמנה במחיר ${price}`);
-        mainButton.append(nameNode, priceNode);
+        const main = document.createElement("div");
+        main.className = "menuProduct__main";
+        main.append(nameNode, priceNode);
 
         const controls = document.createElement("div");
-        controls.className = "menuItem__controls";
+        controls.className = "menuQty";
+        controls.innerHTML = `
+          <button type="button" aria-label="הפחת ${name}">-</button>
+          <span>0</span>
+          <button type="button" aria-label="הוסף ${name}">+</button>
+        `;
 
-        const minusButton = document.createElement("button");
-        minusButton.type = "button";
-        minusButton.className = "menuQtyBtn";
-        minusButton.setAttribute("aria-label", `הפחת כמות עבור ${name}`);
-        minusButton.textContent = "-";
+        const [minusButton, plusButton] = controls.querySelectorAll("button");
+        const quantityLabel = controls.querySelector("span");
 
-        const quantityValue = document.createElement("span");
-        quantityValue.className = "menuQtyValue";
-        quantityValue.textContent = "0";
-
-        const plusButton = document.createElement("button");
-        plusButton.type = "button";
-        plusButton.className = "menuQtyBtn";
-        plusButton.setAttribute("aria-label", `הוסף כמות עבור ${name}`);
-        plusButton.textContent = "+";
-
-        controls.append(minusButton, quantityValue, plusButton);
-        item.replaceChildren(mainButton, controls);
-
-        const setQuantity = (nextQuantity) => {
-          const quantity = Math.max(0, nextQuantity);
-          selections.set(itemKey, quantity);
-          quantityValue.textContent = String(quantity);
-          quantityValue.setAttribute("aria-label", `כמות נבחרת עבור ${name}: ${quantity}`);
-          item.classList.toggle("menuItem--selected", quantity > 0);
-          updateOrderSummary();
-          setStatusMessage(
-            menuSelectionStatus,
-            quantity > 0
-              ? `${name} עודכן לכמות ${quantity}.`
-              : `${name} הוסר מההזמנה.`
-          );
+        const setQuantity = (quantity) => {
+          const item = selections.get(key);
+          item.quantity = Math.max(0, quantity);
+          quantityLabel.textContent = String(item.quantity);
+          row.classList.toggle("menuProduct--selected", item.quantity > 0);
+          updateCart();
         };
 
-        plusButton.addEventListener("click", (event) => {
-          event.stopPropagation();
-          setQuantity((selections.get(itemKey) || 0) + 1);
+        minusButton.addEventListener("click", () => {
+          setQuantity((selections.get(key)?.quantity || 0) - 1);
         });
 
-        minusButton.addEventListener("click", (event) => {
-          event.stopPropagation();
-          setQuantity((selections.get(itemKey) || 0) - 1);
+        plusButton.addEventListener("click", () => {
+          setQuantity((selections.get(key)?.quantity || 0) + 1);
         });
 
-        mainButton.addEventListener("click", () => {
-          setQuantity((selections.get(itemKey) || 0) + 1);
+        row.replaceChildren(main, controls);
+      });
+
+      cartCheckout?.addEventListener("click", (event) => {
+        const hasItems = getSelectedItems().length > 0;
+        event.preventDefault();
+
+        if (!hasItems) {
+          alert("בחרו לפחות מוצר אחד לפני שליחת ההזמנה.");
+          return;
+        }
+
+        openOrderModal();
+      });
+
+      orderModalClose?.addEventListener("click", closeOrderModal);
+
+      orderModal?.addEventListener("click", (event) => {
+        if (event.target === orderModal) {
+          closeOrderModal();
+        }
+      });
+
+      mobileCartJump?.addEventListener("click", () => {
+        document.querySelector(".menuCart")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
       });
 
-      deliveryInputs.forEach((input) => {
-        input.addEventListener("change", updateOrderTotal);
+      customerOrderForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const selectedItems = getSelectedItems();
+        if (selectedItems.length === 0) {
+          closeOrderModal();
+          alert("בחרו לפחות מוצר אחד לפני שליחת ההזמנה.");
+          return;
+        }
+
+        if (!(customerOrderForm instanceof HTMLFormElement)) return;
+
+        if (!customerOrderForm.reportValidity()) {
+          if (orderFormStatus instanceof HTMLElement) {
+            orderFormStatus.textContent = "יש למלא שם, טלפון ואופן קבלת הזמנה.";
+          }
+          return;
+        }
+
+        const formData = new FormData(customerOrderForm);
+        const customerName = String(formData.get("customerName") || "").trim();
+        const customerPhone = String(formData.get("customerPhone") || "").trim();
+        const deliveryMethod = String(formData.get("deliveryMethod") || "").trim();
+        const total = getSelectedTotal(selectedItems);
+        const orderLines = selectedItems.map(
+          (item) => `• ${item.name} x${item.quantity} - ${item.price}`
+        );
+        const message = [
+          "היי לחם חם, אני רוצה לבצע הזמנה:",
+          "",
+          "פרטי לקוח",
+          `שם: ${customerName}`,
+          `טלפון: ${customerPhone}`,
+          `אופן קבלה: ${deliveryMethod}`,
+          "",
+          "פרטי הזמנה",
+          ...orderLines,
+          "",
+          `סה״כ משוער: ${formatTotal(total)}`,
+        ].join("\n");
+
+        if (orderFormStatus instanceof HTMLElement) {
+          orderFormStatus.textContent = "ההזמנה מוכנה ונפתחת עכשיו בוואטסאפ.";
+        }
+
+        window.open(
+          `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+          "_blank",
+          "noopener"
+        );
       });
 
-      updateOrderTotal();
-
-      if (contactForm instanceof HTMLFormElement) {
-        contactForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-          setStatusMessage(formStatus, "");
-
-          if (!(orderSummaryField instanceof HTMLTextAreaElement) || !orderSummaryField.value.trim()) {
-            setStatusMessage(formStatus, "יש לבחור לפחות מוצר אחד מהתפריט לפני שליחת ההזמנה.");
-            const firstMenuButton = document.querySelector(".menuItem__main");
-            if (firstMenuButton instanceof HTMLButtonElement) {
-              firstMenuButton.focus();
-            }
-            return;
-          }
-
-          if (!contactForm.reportValidity()) {
-            setStatusMessage(formStatus, "יש להשלים את שדות החובה בטופס לפני השליחה.");
-            return;
-          }
-
-          const formData = new FormData(contactForm);
-          const name = String(formData.get("name") || "").trim();
-          const contact = String(formData.get("contact") || "").trim();
-          const deliveryMethod = String(formData.get("deliveryMethod") || "איסוף עצמי").trim();
-          const order = String(formData.get("order") || "").trim();
-          const message = String(formData.get("message") || "").trim();
-          const total = orderTotalField instanceof HTMLElement ? orderTotalField.textContent.trim() : "₪0";
-          const orderLines = order ? order.split("\n").map((line) => `• ${line}`) : ["• לא נבחרו מוצרים"];
-
-          const whatsappMessage = [
-            "היי לחם חם, התקבלה הזמנה חדשה מהאתר:",
-            "",
-            "פרטי לקוח",
-            `שם: ${name}`,
-            `טלפון: ${contact}`,
-            `אופן קבלה: ${deliveryMethod}`,
-            `סכום משוער: ${total}`,
-            "",
-            "פרטי הזמנה",
-            ...orderLines,
-            "",
-            "הערות",
-            message || "ללא",
-          ].join("\n");
-
-          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-          setStatusMessage(formStatus, "ההזמנה מוכנה ונפתחת עכשיו בוואטסאפ.");
-          window.open(whatsappUrl, "_blank", "noopener");
-        });
-      }
+      updateCart();
     </script>
   </body>
 </html>
